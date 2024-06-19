@@ -5,35 +5,61 @@
 
     <ScrollView>
         <VerticalStackLayout
+            Spacing="25"
             Padding="30,0"
-            Spacing="25">
-            
-            <Image
-                x:Name="coinImage"
-                Source="cara.jpg"
-                HeightRequest="150"/>
+            VerticalOptions="Center">
 
-            <Picker
-                x:Name="CoinPicker"
-                Title="Selecione cara ou coroa">
-                <Picker.Items>
-                    <x:String>Cara</x:String>
-                    <x:String>Coroa</x:String>
-                </Picker.Items>
+            <Label
+                x:Name="Result_label"
+                Text="Cara ou Coroa"
+                FontSize="35"
+                HorizontalOptions="Center" 
+                FontAttributes="Bold"
+                VerticalTextAlignment="Center"/>
+
+            <Image
+                x:Name="CoinResultImage"
+                Source = "cara.jpg"
+                HeightRequest="185"
+                Aspect="AspectFit"/>
+
+            <Picker 
+                x:Name="CoinSidesPicker"
+                Title="Selecione o lado da moeda"
+                HorizontalOptions="Center"
+                WidthRequest="275" 
+                HeightRequest="80"
+                FontAttributes="Bold">
+
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Cara</x:String>
+                        <x:String>Coroa</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
             </Picker>
-            
+
             <Label
                 x:Name="Resultlabel"
-                Style="{StaticResource Headline}"
-                SemanticProperties.HeadingLevel="Level1" />
+                HorizontalOptions="Center"
+                VerticalTextAlignment="Center"
+                FontAttributes="Bold"/>
 
             <Button
-                x:Name="CoinFlipButton"
-                Text="Jogar a Moeda" 
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="CoinFlipButton_Clicked"
-                HorizontalOptions="Fill" />
+                x:Name="PlayCoinButton"
+                Clicked="PlayCoinButton_Clicked"
+                Text="Jogar a Moeda"
+                HorizontalOptions="Center"
+                BackgroundColor="#DAA520"
+                WidthRequest="200" 
+                HeightRequest="50"
+                FontSize="Micro"
+                />
+
         </VerticalStackLayout>
+
     </ScrollView>
+
+
 
 </ContentPage>

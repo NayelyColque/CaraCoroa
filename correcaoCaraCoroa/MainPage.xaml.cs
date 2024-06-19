@@ -2,54 +2,53 @@
 {
     public partial class MainPage : ContentPage
     {
+        int count = 0;
+
         public MainPage()
         {
             InitializeComponent();
         }
 
-        private void CoinFlipButton_Clicked(object sender, EventArgs e)
+        private void PlayCoinButton_Clicked(object sender, EventArgs e)
         {
-            //Pegar o número selecionado pelo usuário no Picker
-            string ladoSelecionado = CoinPicker.SelectedIndex.ToString();
+            string LadoMoeda = CoinSidesPicker.SelectedItem as string;
+            int LadoSorteado = new Random().Next(2);
 
-            //Sortear um numero
-            int numeroSorteado = new Random().Next(2);
+            //Trocar a imagem pelo resultado dado pelo usuario
 
-
-            //Troco a img pelo resultado: Onde 0 eh cara
-            if (numeroSorteado == 0 )
+            if (LadoSorteado == 0)
             {
-                coinImage.Source = "cara.jpg";
+                CoinResultImage.Source = "cara.jpg";
             }
-            //Troco a img pelo resultado: onde 1 eh coroa
-            if (numeroSorteado == 1)
+
+            else if (LadoSorteado == 1)
             {
-                coinImage.Source = "coroa.jpg";
+                CoinResultImage.Source = "coroa.jpg";
             }
 
             //Comparar com o que o usuario selecionou 0
-            if (numeroSorteado == 0 && ladoSelecionado == "Cara")
+
+            if (LadoSorteado == 0 && LadoMoeda == "Cara")
             {
                 Resultlabel.Text = "Parabens, deu cara!";
             }
 
-            if (numeroSorteado == 0 && ladoSelecionado == "Cara")
+            else if (LadoSorteado == 0 && LadoMoeda == "Coroa")
             {
                 Resultlabel.Text = "Que pena, vc selecionou cara e deu coroa!";
             }
 
             //Comparar com o que o usuario selecionou 1
-            if (numeroSorteado == 1 && ladoSelecionado == "Coroa")
+            else if (LadoSorteado == 1 && LadoMoeda == "Coroa")
             {
                 Resultlabel.Text = "Parabens, deu coroa!";
             }
 
-            if (numeroSorteado == 1 && ladoSelecionado == "Coroa")
+            else if (LadoSorteado == 1 && LadoMoeda == "Cara")
             {
                 Resultlabel.Text = "Que pena, vc selecionou cara e deu cara!";
             }
 
-            //Exibir o resultado, se a pessoa ganhou ou perdeu
         }
     }
 
